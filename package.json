@@ -4,8 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "npm run build --prefix ./webapp && node server.js",
-    "heroku-postbuild": "cd webapp && npm install && npm run build"
+    "start": "node server.js",
+    "heroku-postbuild": "cd webapp && npm run build"
   },
   "author": "",
   "license": "ISC",
