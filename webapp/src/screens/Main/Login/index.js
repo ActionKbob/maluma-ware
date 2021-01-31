@@ -6,6 +6,8 @@ import { userSelector, handleError } from 'store/user';
 
 import 'styles/login.scss';
 
+import logo from 'images/guacOSLogo.png';
+
 const Login = () => {
 	
 	const dispatch = useDispatch();
@@ -29,7 +31,8 @@ const Login = () => {
 	return(
 		<div id="login" className="d-flex justify-content-center align-items-center">
 			<form className="d-flex flex-column" onSubmit={ handleLogin }>
-				<input type="text" value={loginUser} onChange={ ( event ) => { setLoginUser( event.target.value ); } }/>
+				<img id="logo" src={logo} alt="GuacOS Logo"/>
+				<input className="mb-3" placeholder="Character Name" type="text" value={loginUser} onChange={ ( event ) => { setLoginUser( event.target.value ); } }/>
 				<input type="submit" value="Login"/>
 			</form>
 		</div>
