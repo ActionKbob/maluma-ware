@@ -8,7 +8,7 @@ const ItemField = ( props ) => {
 				return( <input type="text" value={ props.value } onChange={ props.onChange }/> );
 
 			case "number" :
-				return( <input type="number" value={ props.value } onChange={ props.onChange }/> );
+				return( <input className="w-100" type="number" value={ props.value } onChange={ props.onChange }/> );
 
 			case "boolean" :
 				return( <input type="checkbox" checked={ props.value } onChange={ props.onChange }/> );

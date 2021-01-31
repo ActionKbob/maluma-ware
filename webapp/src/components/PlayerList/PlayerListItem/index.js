@@ -54,8 +54,8 @@ const PlayerListItem = ( props ) => {
 		<div className="row">
 			<div className="col-12">
 				<div className="row">
-					<div className="col-7"><ItemField value={ name } onChange={ handleNameChange } editable={ editable } /></div>
-					<div className="col-2 text-right"><ItemField value={ intMod } onChange={ handleIntModChange } editable={ editable } /></div>
+					<div className="col-6"><ItemField value={ name } onChange={ handleNameChange } editable={ editable } /></div>
+					<div className="col-3 text-right"><ItemField value={ intMod } onChange={ handleIntModChange } editable={ editable } /></div>
 					<div className="col-1"><ItemField value={ isProf } onChange={ handleIsProfChange } editable={ editable } /></div>
 					<div className="col-2">{buttonContent}</div>
 				</div>
