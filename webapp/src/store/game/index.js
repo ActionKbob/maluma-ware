@@ -110,6 +110,7 @@ const gameSlice = createSlice( {
 				}
 			} );
 
+			state.attempts--;
 			state.selectedCards = [];
 		},
 
