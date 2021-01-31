@@ -17,7 +17,7 @@ const Card = ( props ) => {
 		{
 			content = (
 				<div>
-					<img src={ skull } />
+					<img src={ skull } alt="skull death hack fail" />
 				</div>
 			);
 		}

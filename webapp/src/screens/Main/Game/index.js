@@ -8,6 +8,7 @@ import { logout } from 'store/user';
 
 import Loading from 'components/Loading';
 import Board from 'components/Board';
+import GameOver from 'components/GameOver';
 import Tally from 'components/Board/Tally';
 
 const Game = () => {
@@ -52,9 +53,7 @@ const Game = () => {
 	if(  status === 'loading' )
 		content = <Loading/>;
 	else if (  status === 'gameOver' )
-		content = (
-			<div>GAMOEE</div>
-		)
+		content = <GameOver/>
 	else
 		content = <Board/>;
 
