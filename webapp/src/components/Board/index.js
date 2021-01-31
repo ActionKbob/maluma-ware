@@ -3,7 +3,6 @@ import { useDispatch, useSelector } from 'react-redux';
 import { gameSelector, delayedCheckMatch, handleFail } from 'store/game';
 
 import Card from 'components/Card';
-import Tally from 'components/Board/Tally';
 
 import 'styles/board.scss';
 
@@ -23,11 +22,10 @@ const Board = () => {
 
 	const dispatch = useDispatch();
 
-	const { cards, selectedCards, status, attempts, successes } = useSelector( gameSelector );	
+	const { cards, selectedCards, status } = useSelector( gameSelector );	
 
 	useEffect( () => {
 
-		console.log(status)
 		if( status === 'playing' )
 		{
 			if( selectedCards.filter( c => c.pairId === -1 ).length > 0 )
@@ -52,10 +50,6 @@ const Board = () => {
 		<div>
 			<div className="d-flex flex-wrap">
 				{cardElements}
-			</div>
-			<div>
-				<Tally amount={ attempts } />
-				<Tally amount={ successes } />
 			</div>
 		</div>
 	);

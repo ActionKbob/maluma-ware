@@ -2,10 +2,14 @@
 
 .tally
 {
+    border: 4px ridge $guacMedGreen;
+    padding: 4px;
+    height: 40px;
+    
     >div
     {
         background-color: $guacDarkGreen;
-        height: 30px;
+        height: 100%;
         width: 50px;
         margin-right: 4px;
         margin-bottom: 1rem;

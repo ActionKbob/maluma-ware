@@ -4,9 +4,11 @@ import { useDispatch, useSelector } from 'react-redux';
 import { configSelector, fetchConfig } from 'store/config'; 
 import { userSelector, fetchPlayerData } from 'store/user';
 import { gameSelector, newGame, endGame } from 'store/game';
+import { logout } from 'store/user';
 
 import Loading from 'components/Loading';
 import Board from 'components/Board';
+import Tally from 'components/Board/Tally';
 
 const Game = () => {
 
@@ -58,7 +60,27 @@ const Game = () => {
 
 	return(
 		<div>
-			{content}
+			<div className="row mt-5">
+				<div className="col-12 col-md-8">
+					{content}
+				</div>
+				<div className="col-12 col-md-4">
+					<div className="mt-5 mb-5">
+						<div className="mb-2">Attempts:</div>
+						<Tally amount={ attempts } />
+					</div>
+
+					<div className="mb-5">
+						<div className="mb-2">Successes:</div>
+						<Tally amount={ successes } />
+					</div>
+				</div>
+			</div>
+			<div className="row justify-content-end">
+				<div className="col-12 col-md-4">
+					<button className="logout-btn" onClick={ () => { dispatch( logout() ); } }>Logout</button>
+				</div>
+			</div>
 		</div>
 	);
 }

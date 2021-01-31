@@ -8,7 +8,7 @@ const Card = ( props ) => {
 
 	const dispatch = useDispatch();
 
-	const { pairId, flipped, status } = props.data;
+	const { flipped } = props.data;
 
 	let content;
 	if( flipped )
@@ -40,7 +40,7 @@ const Card = ( props ) => {
 	}
 
 	return(
-		<div className="card" onClick={ () => { dispatch( cardClick( props.data ) ); } }>
+		<div className="gameCard" onClick={ () => { dispatch( cardClick( props.data ) ); } }>
 			<div>
 				{content}
 			</div>

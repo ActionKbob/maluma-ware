@@ -17,7 +17,6 @@ const Login = () => {
 		if( error )
 		{
 			dispatch( handleError() );
-			console.log( "HANDLE ERROR" );
 			//TODO animate input or whatever
 		}
 	}, [ error, dispatch ] );
@@ -28,7 +27,7 @@ const Login = () => {
 	}
 
 	return(
-		<div id="login">
+		<div id="login" className="d-flex justify-content-center align-items-center">
 			<form className="d-flex flex-column" onSubmit={ handleLogin }>
 				<input type="text" value={loginUser} onChange={ ( event ) => { setLoginUser( event.target.value ); } }/>
 				<input type="submit" value="Login"/>

@@ -1,5 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=VT323&display=swap');
-@import '~bootstrap/scss/bootstrap-grid.scss';
+@import '~bootstrap/scss/bootstrap.scss';
+// @import '~bootstrap/scss/type.scss';
 @import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
 
 @import 'variables';
@@ -11,4 +12,14 @@ body
     margin: 0;
     background-color: $guacGreen;
     color : $guacDarkGreen;
+}
+
+.logout-btn
+{
+    outline: none;
+    border : 4px ridge $guacMedGreen;
+    background-color: transparent;
+    font-family: 'Press Start 2P', cursive;
+    width: 100%;
+    padding: 1rem;
 }

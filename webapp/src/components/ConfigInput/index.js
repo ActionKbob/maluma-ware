@@ -35,7 +35,7 @@ const ConfigInput = () => {
 						{dcOptions}
 					</select>
 				</label>
-
+				<br/>
 				<label>
 					Proficiency Bonus:
 					<select value={ gameSettings.profMod } onChange={ async ( event ) => { await dispatch( setConfig( { action : 'profMod', payload : event.target.value } ) ); } }>

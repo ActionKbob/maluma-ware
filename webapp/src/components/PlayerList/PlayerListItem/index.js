@@ -51,11 +51,15 @@ const PlayerListItem = ( props ) => {
 	}
 
 	return(
-		<div className="d-flex">
-			[<ItemField value={ name } onChange={ handleNameChange } editable={ editable } />]
-			[<ItemField value={ intMod } onChange={ handleIntModChange } editable={ editable } />]
-			[<ItemField value={ isProf } onChange={ handleIsProfChange } editable={ editable } />]
-			{buttonContent}
+		<div className="row">
+			<div className="col-12">
+				<div className="row">
+					<div className="col-7"><ItemField value={ name } onChange={ handleNameChange } editable={ editable } /></div>
+					<div className="col-2 text-right"><ItemField value={ intMod } onChange={ handleIntModChange } editable={ editable } /></div>
+					<div className="col-1"><ItemField value={ isProf } onChange={ handleIsProfChange } editable={ editable } /></div>
+					<div className="col-2">{buttonContent}</div>
+				</div>
+			</div>
 		</div>
 	);
 };

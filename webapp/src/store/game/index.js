@@ -1,11 +1,10 @@
-import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
+import { createSlice } from '@reduxjs/toolkit';
 
 import { calculateAttempts, calculatePairs } from 'utilities';
 
 export const delayedCheckMatch = ( payload ) => async dispatch => {
 	await dispatch( checkMatch( payload ) );
 	setTimeout( () => {
-		console.log(payload)
 		dispatch( handleMatch( payload ) );
 	}, 1200 );
 }

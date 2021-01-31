@@ -12,7 +12,6 @@ export const clearLoggedInUser = () => {
 
 export function calculateAttempts( intMod, prof ) 
 {
-	console.log( `int: ${intMod} - prof: ${prof}` )
 	let result = Math.floor( intMod / 2 ) + prof;
 	return result < 1 ? 1 : result;
 }
