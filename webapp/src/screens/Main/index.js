@@ -25,7 +25,7 @@ const Main = () => {
 	}
 
 	return(
-		<div id="main_view" className="container-fluid no-gutters">
+		<div id="main_view" className="container">
 			{content}
 		</div>
 	);
