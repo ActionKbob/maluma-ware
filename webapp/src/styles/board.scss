@@ -1,0 +1,13 @@
+@import 'variables';
+
+.tally
+{
+    >div
+    {
+        background-color: $guacDarkGreen;
+        height: 30px;
+        width: 50px;
+        margin-right: 4px;
+        margin-bottom: 1rem;
+    }
+}

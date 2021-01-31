@@ -1,1 +1,14 @@
+@import url('https://fonts.googleapis.com/css2?family=VT323&display=swap');
 @import '~bootstrap/scss/bootstrap-grid.scss';
+@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
+
+@import 'variables';
+
+body
+{
+    // font-family: 'VT323', monospace;
+    font-family: 'Press Start 2P', cursive;
+    margin: 0;
+    background-color: $guacGreen;
+    color : $guacDarkGreen;
+}

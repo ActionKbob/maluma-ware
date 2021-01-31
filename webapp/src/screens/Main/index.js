@@ -5,6 +5,7 @@ import { logout } from 'store/user';
 import Login from './Login';
 import Game from './Game';
 
+import 'styles/main.scss';
 
 const Main = () => {
 
@@ -27,9 +28,9 @@ const Main = () => {
 	}
 
 	return(
-		<div className="container">
+		<div id="main_view" className="container-fluid no-gutters">
 			{content}
-			<button onClick={ () => { dispatch( logout() ); } }>Logout</button>
+			{/* <button onClick={ () => { dispatch( logout() ); } }>Logout</button> */}
 		</div>
 	);
 

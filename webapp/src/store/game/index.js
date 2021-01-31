@@ -1,6 +1,14 @@
-import { createSlice } from '@reduxjs/toolkit';
+import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
 
 import { calculateAttempts, calculatePairs } from 'utilities';
+
+export const delayedCheckMatch = ( payload ) => async dispatch => {
+	await dispatch( checkMatch( payload ) );
+	setTimeout( () => {
+		console.log(payload)
+		dispatch( handleMatch( payload ) );
+	}, 1200 );
+}
 
 const populateCards = ( cardCount, pairs ) => {
 	let cardId = -1
@@ -46,7 +54,6 @@ const gameSlice = createSlice( {
 			
 			if( state.status !== 'idle' && state.selectedCards.length < 2 )
 			{
-				console.log(payload)
 				let card = state.cards.find( c => c.id === payload.id )
 				if( card && card.flipped === false )
 				{
@@ -58,6 +65,8 @@ const gameSlice = createSlice( {
 
 		checkMatch : ( state, { payload } ) => {
 			
+			state.status = 'idle';
+
 			let card1 = state.cards.find( c => c.id === payload[0].id );
 			let card2 = state.cards.find( c => c.id === payload[1].id );
 			if( card1 && card2 )
@@ -68,14 +77,43 @@ const gameSlice = createSlice( {
 					card2.status = 'matched';
 					state.successes++;
 				}
-				else
-				{
-					card1.flipped = false;
-					card2.flipped = false;
-				}
-				state.selectedCards = [];
+				// else
+				// {
+				// 	card1.flipped = card2.flipped = false;
+				// }
+				// state.selectedCards = [];
 			}
 		},
+
+		handleMatch : ( state, { payload } ) => {
+			
+			let card1 = state.cards.find( c => c.id === payload[0].id );
+			let card2 = state.cards.find( c => c.id === payload[1].id );
+
+			if( card1.status !== 'matched' && card1.pairId !== -1 )
+				card1.flipped = false;
+
+			if( card2.status !== 'matched' && card2.pairId !== -1 )
+				card2.flipped = false;
+
+			state.selectedCards = [];
+			state.status = 'playing';
+		},
+
+		handleFail : state => 
+		{
+			state.selectedCards.forEach( sc => {
+				let card = state.cards.find( c => c.id === sc.id );
+				if( card && card.pairId !== -1 )
+				{
+					card.flipped = false;
+				}
+			} );
+
+			state.selectedCards = [];
+		},
+
+
 
 		endGame : state => {
 			state.status = 'gameOver';
@@ -84,7 +122,7 @@ const gameSlice = createSlice( {
 	extraReducers : {}
 } );
 
-export const { newGame, cardClick, checkMatch, endGame } = gameSlice.actions;
+export const { newGame, cardClick, checkMatch, handleMatch, handleFail, endGame } = gameSlice.actions;
 export const gameSelector = state => state.gameReducer;
 
 export default gameSlice.reducer;

@@ -21,9 +21,8 @@ const Game = () => {
 
 	useEffect( () => {
 
-		if( attempts === 0 || successes === 3 )
+		if( status === 'playing' && ( attempts === 0 || successes === 3 ) )
 		{
-			console.log("adwwa")
 			dispatch( endGame() );
 		}
 
@@ -33,7 +32,7 @@ const Game = () => {
 
 			await dispatch( fetchPlayerData( user ) );
 
-			if(  status === 'loading' && checkDC && isProf && profMod && intMod )
+			if(  status === 'loading' && checkDC && isProf !== undefined && profMod && intMod !== undefined )
 			{
 				await dispatch( newGame( {
 					checkDC : checkDC,

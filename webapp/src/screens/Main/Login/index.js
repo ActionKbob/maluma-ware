@@ -4,6 +4,8 @@ import { attemptLogin } from 'store/user';
 
 import { userSelector, handleError } from 'store/user';
 
+import 'styles/login.scss';
+
 const Login = () => {
 	
 	const dispatch = useDispatch();
@@ -26,8 +28,8 @@ const Login = () => {
 	}
 
 	return(
-		<div>
-			<form onSubmit={ handleLogin }>
+		<div id="login">
+			<form className="d-flex flex-column" onSubmit={ handleLogin }>
 				<input type="text" value={loginUser} onChange={ ( event ) => { setLoginUser( event.target.value ); } }/>
 				<input type="submit" value="Login"/>
 			</form>
