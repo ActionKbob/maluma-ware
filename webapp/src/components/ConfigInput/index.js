@@ -3,6 +3,8 @@ import { useSelector, useDispatch } from 'react-redux';
 
 import { configSelector, fetchConfig, setConfig } from 'store/config'; 
 
+import 'styles/form.scss';
+
 const ConfigInput = () => {
 	const gameSettings = useSelector( configSelector );
 	const dispatch = useDispatch();

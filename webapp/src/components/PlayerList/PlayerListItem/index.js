@@ -5,6 +5,8 @@ import ItemField from './ItemField';
 
 import { setPlayer } from 'store/players';
 
+import 'styles/form.scss';
+
 const PlayerListItem = ( props ) => {
 
 	const dispatch = useDispatch();
@@ -22,6 +24,9 @@ const PlayerListItem = ( props ) => {
 	const handleIsProfChange = ( event ) => { setIsProf( event.target.checked ); }
 
 	const handleUpdateClick = async ( event ) => {
+		if( name.length === 0 )
+			return;
+
 		setEditable( false );
 		await dispatch( setPlayer( {
 			id : id,
@@ -54,10 +59,18 @@ const PlayerListItem = ( props ) => {
 		<div className="row">
 			<div className="col-12">
 				<div className="row">
-					<div className="col-6"><ItemField value={ name } onChange={ handleNameChange } editable={ editable } /></div>
-					<div className="col-3 text-right"><ItemField value={ intMod } onChange={ handleIntModChange } editable={ editable } /></div>
-					<div className="col-1"><ItemField value={ isProf } onChange={ handleIsProfChange } editable={ editable } /></div>
-					<div className="col-2">{buttonContent}</div>
+					<div className="col-6">
+						<div><ItemField value={ name } onChange={ handleNameChange } editable={ editable } /></div>
+					</div>
+					<div className="col-2 text-right">
+						<div><ItemField value={ intMod } onChange={ handleIntModChange } editable={ editable } /></div>
+					</div>
+					<div className="col-2">
+						<div><ItemField value={ isProf } onChange={ handleIsProfChange } editable={ editable } /></div>
+					</div>
+					<div className="col-2">
+						<div>{buttonContent}</div>
+					</div>
 				</div>
 			</div>
 		</div>

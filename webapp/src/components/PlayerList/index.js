@@ -29,6 +29,18 @@ const PlayerList = () => {
 	return(
 
 		<div>
+			<div className="row">
+				<div className="col-6">
+					Character name
+				</div>
+				<div className="col-2 text-right">
+					Int Mod
+				</div>
+				<div className="col-2">
+					Prof
+				</div>
+			</div>
+			<hr/>
 			<div>
 				{content}
 			</div>
